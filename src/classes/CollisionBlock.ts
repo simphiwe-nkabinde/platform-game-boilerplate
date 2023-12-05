@@ -1,20 +1,10 @@
-import { CollisionBlockOptions, Position } from '../interfaces/Position';
-export class CollisionBlock {
-    _context: CanvasRenderingContext2D;
-    _width: number = 0;
-    _height: number = 0;
-    _position: Position = { x: 0, y: 0 };
+import { CollisionBlockOptions, Position } from '../interfaces/Interfaces';
+import { Sprite } from './Sprite';
+export class CollisionBlock extends Sprite {
     constructor(context: CanvasRenderingContext2D, options: CollisionBlockOptions) {
-        this._context = context;
-        this._width = options.width;
-        this._height = options.height;
-        this._position = options.position;
-    }
-    draw() {
-        this._context.fillStyle = 'blue';
-        this._context.fillRect(this._position.x, this._position.y, this._width, this._height);
+        super(context, options);
     }
     update() {
-        this.draw();
+        this.draw('blue');
     }
 }

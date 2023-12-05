@@ -19,13 +19,18 @@ const CONTROLS = {
     pressed: false
   }
 }
-const groundBlock = new CollisionBlock(CONTEXT!, { position: { x: 0, y: canvas!.height - 5 }, width: canvas!.width, height: 10 });
-const rigthWall = new CollisionBlock(CONTEXT!, { position: { x: canvas!.width - 5, y: 0 }, width: 10, height: canvas!.height });
-const collisionBlocks = [groundBlock]
+const groundBlock = new CollisionBlock(CONTEXT!, { position: { x: 0, y: canvas!.height - 10 }, width: canvas!.width, height: 5 });
+const ceilingBlock = new CollisionBlock(CONTEXT!, { position: { x: 0, y: 10 }, width: canvas!.width, height: 5 });
+const rightWall = new CollisionBlock(CONTEXT!, { position: { x: canvas!.width - 10, y: 0 }, width: 5, height: canvas!.height });
+const leftWall = new CollisionBlock(CONTEXT!, { position: { x: 10, y: 0 }, width: 5, height: canvas!.height });
+
+const collisionBlocks = [groundBlock, rightWall, leftWall, ceilingBlock]
 const player = new Player(CONTEXT!, {
   position: { x: 200, y: 0 },
   gravity: GRAVITY,
-  collisionBlocks
+  collisionBlocks,
+  width : 100,
+  height: 100
 });
 
 function animate() {
